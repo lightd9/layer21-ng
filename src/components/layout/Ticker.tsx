@@ -1,0 +1,30 @@
+const tickerItems = [
+  "FIRS-Certified E-Invoicing Access Point",
+  "Real-time invoice validation to NRS",
+  "Seamless ERP integration (Odoo, SAP, Oracle, QuickBooks)",
+  "SDaaS: Dedicated software engineering teams on demand",
+  "Custom software built for scale and performance",
+  "Secure API infrastructure for enterprise systems",
+  "Automated compliance, audit trails & invoice archiving",
+  "Fast integration with existing business systems",
+  "99.9% uptime enterprise-grade infrastructure",
+  "Built for Nigerian enterprise compliance & growth",
+]
+
+export default function Ticker() {
+  return (
+    <div className="w-full overflow-hidden bg-slate-900 text-sm text-white">
+      <div className="flex w-max animate-marquee whitespace-nowrap py-3">
+        {[...tickerItems, ...tickerItems].map((item, index) => (
+          <span
+            key={`${item}-${index}`}
+            aria-hidden={index >= tickerItems.length}
+            className="mx-10"
+          >
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
