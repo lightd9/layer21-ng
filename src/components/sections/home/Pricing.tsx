@@ -69,7 +69,7 @@ export default function Pricing() {
           </Reveal>
 
           <Reveal>
-            <div className="mt-16 grid gap-6 lg:grid-cols-2">
+            <div className="mt-16 grid gap-6 lg:grid-cols-2 gap-x-20">
               {plans.map((plan) => (
                 <div
                   key={plan.title}
