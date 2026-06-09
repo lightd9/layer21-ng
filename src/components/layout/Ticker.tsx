@@ -13,14 +13,15 @@ const tickerItems = [
 
 export default function Ticker() {
   return (
-    <div className="w-full overflow-hidden bg-slate-900 text-sm text-white">
+    <div className="w-full overflow-hidden bg-slate-950 text-sm text-white">
       <div className="flex w-max animate-marquee whitespace-nowrap py-3">
         {[...tickerItems, ...tickerItems].map((item, index) => (
           <span
             key={`${item}-${index}`}
             aria-hidden={index >= tickerItems.length}
-            className="mx-10"
+            className="mx-8 inline-flex items-center gap-3 font-semibold"
           >
+            <span className="h-2 w-2 rounded-full bg-cyan-300" />
             {item}
           </span>
         ))}

@@ -9,7 +9,6 @@ export default function CTA() {
         <div className="relative overflow-hidden rounded-[40px] bg-blue-600 px-8 py-20 text-center text-white lg:px-20">
 
           {/* BACKGROUND EFFECT */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_35%)]" />
 
           <div className="relative">
 

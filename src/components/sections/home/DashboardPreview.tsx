@@ -1,6 +1,6 @@
 export default function DashboardPreview() {
   return (
-    <section className="bg-slate-50 px-6 py-32">
+    <section id="dashboard-preview" className="bg-slate-50 px-6 py-32">
       <div className="mx-auto max-w-7xl">
         
         <div className="max-w-3xl">

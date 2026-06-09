@@ -1,27 +1,32 @@
 import HowWeWork from "@/components/sections/home/HowWeWork"
+import Image from "next/image"
 
 export default function HowWeWorkCard() {
   return (
-    <section className="bg-[#F8FAFC] px-6 py-32">
-      <div className="relative mx-auto max-w-5xl">
-        <div className="absolute inset-0 scale-110 rounded-[40px] bg-blue-200 opacity-30 blur-3xl" />
-
-        <div className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-          <div className="flex items-center justify-between border-b border-slate-100 px-8 py-5">
-            <div className="flex items-center gap-3">
-              <div className="h-3 w-3 rounded-full bg-red-400" />
-              <div className="h-3 w-3 rounded-full bg-yellow-400" />
-              <div className="h-3 w-3 rounded-full bg-green-400" />
-            </div>
-
-            <p className="text-sm font-medium text-blue-600">
-              HOW WE WORK
+    <section id="how-we-work" className="relative overflow-hidden bg-white px-6 py-28">
+      <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-stretch">
+        <div className="relative min-h-[420px] overflow-hidden rounded-xl bg-slate-950">
+          <Image
+            src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200"
+            alt="Software development team working together"
+            width={1200}
+            height={760}
+            sizes="(min-width: 1024px) 40vw, 90vw"
+            className="h-full w-full object-cover opacity-70"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-7 text-white">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-200">
+              SDaaS pod
             </p>
+            <h2 className="mt-3 text-4xl font-black leading-tight">
+              Senior product capacity without a hiring sprint.
+            </h2>
           </div>
+        </div>
 
-          <div className="px-6 py-12 sm:px-10 lg:px-12">
-            <HowWeWork />
-          </div>
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-6 shadow-sm lg:p-10">
+          <HowWeWork />
         </div>
       </div>
     </section>

@@ -28,7 +28,11 @@ export default function HowWeWork() {
         <div>
          
 
-          <h2 className="mt-5 max-w-xl text-3xl font-bold leading-[1.08] tracking-tight text-slate-900 sm:text-4xl">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-700">
+            How we work
+          </p>
+
+          <h2 className="mt-5 max-w-xl text-3xl font-black leading-[1.08] tracking-tight text-slate-950 sm:text-4xl">
             Get a dedicated product team at fraction of the cost.
           </h2>
         </div>
@@ -40,9 +44,9 @@ export default function HowWeWork() {
             the overhead of hiring in-house. Submit unlimited requests and keep your roadmap moving.
           </p>
 
-          <button className="mt-7 rounded-md bg-blue-600 px-8 py-4 text-sm font-bold text-white transition hover:bg-blue-700">
+          <a href="#pricing" className="mt-7 inline-flex min-h-12 items-center rounded-lg bg-slate-950 px-8 py-4 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-blue-700">
             See Pricing
-          </button>
+          </a>
         </div>
       </div>
 
@@ -50,16 +54,16 @@ export default function HowWeWork() {
         {steps.map((step, index) => (
           <div key={step.title} className="relative">
             {index < steps.length - 1 && (
-              <div className="absolute left-16 right-[-2.5rem] top-8 hidden h-px bg-blue-600 lg:block">
-                <span className="absolute right-0 top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 border-r border-t border-blue-600" />
+              <div className="absolute left-16 right-[-2.5rem] top-8 hidden h-px bg-blue-500 lg:block">
+                <span className="absolute right-0 top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 border-r border-t border-blue-500" />
               </div>
             )}
 
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-white">
+            <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-white text-blue-700 shadow-lg ring-1 ring-slate-200">
               <step.Icon className="h-8 w-8 stroke-[2.5]" />
             </div>
 
-            <h3 className="mt-8 text-xl font-bold leading-7 text-slate-900">
+            <h3 className="mt-8 text-xl font-black leading-7 text-slate-950">
               {step.title}
             </h3>
 

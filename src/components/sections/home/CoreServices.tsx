@@ -1,6 +1,14 @@
 "use client"
 
 import Reveal from "@/components/animations/Reveal"
+import {
+  ArrowUpRight,
+  Braces,
+  FileCheck2,
+  Network,
+  Workflow,
+  Zap,
+} from "lucide-react"
 
 const primaryServices = [
   {
@@ -9,6 +17,9 @@ const primaryServices = [
       "FIRS/NRS-compliant invoice submission infrastructure that connects businesses and ERP systems directly to the Nigeria Revenue Service through secure APIs.",
     badge: "Compliance Infrastructure",
     target: "pricing",
+    Icon: FileCheck2,
+    accent: "from-cyan-500 to-blue-600",
+    metric: "98.7% acceptance flow",
   },
   {
     title: "SDaaS",
@@ -16,16 +27,19 @@ const primaryServices = [
       "Dedicated software development services for building scalable platforms, internal systems and enterprise-grade business applications.",
     badge: "Software Development as a Service",
     target: "contact",
+    Icon: Braces,
+    accent: "from-emerald-500 to-teal-600",
+    metric: "Dedicated product pods",
   },
 ]
 
 const supportingServices = [
-  "ERP Integrations",
-  "System Architecture",
-  "API Development",
-  "Workflow Automation",
-  "Infrastructure Consulting",
-  "Enterprise Platforms",
+  { label: "ERP Integrations", Icon: Network },
+  { label: "System Architecture", Icon: Workflow },
+  { label: "API Development", Icon: Braces },
+  { label: "Workflow Automation", Icon: Zap },
+  { label: "Infrastructure Consulting", Icon: Network },
+  { label: "Enterprise Platforms", Icon: Workflow },
 ]
 
 export default function CoreServices() {
@@ -34,135 +48,109 @@ export default function CoreServices() {
     if (!el) return
 
     const offset = -80
-    const top =
-      el.getBoundingClientRect().top + window.pageYOffset + offset
+    const top = el.getBoundingClientRect().top + window.pageYOffset + offset
 
     window.scrollTo({ top, behavior: "smooth" })
   }
 
   return (
-    <section id="services" className="bg-white my-20 px-6 py-24">
+    <section id="services" className="relative overflow-hidden bg-white px-6 py-28">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(240,253,250,0.9)_45%,transparent)]" />
 
-      <div className="mx-auto max-w-6xl">
-
-        {/* TOP */}
+      <div className="relative mx-auto max-w-7xl">
         <Reveal>
-          <div className="text-center">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+                What We Do
+              </p>
 
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-              What We Do
-            </p>
+              <h2 className="mt-6 max-w-4xl text-4xl font-black leading-tight tracking-tight text-slate-950 lg:text-6xl">
+                Two Core Technology Services.
+              </h2>
+            </div>
 
-            <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-slate-900 lg:text-5xl">
-              Two core technology services built for modern businesses
-            </h2>
-
-            <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-600">
-              Layer21 provides enterprise e-invoicing infrastructure and
+            <p className="max-w-3xl text-lg leading-8 text-slate-600 lg:ml-auto">
+              Layer21 provides enterprise e-invoicing infrastructure and 
               scalable software engineering services for businesses building
               modern digital operations.
             </p>
-
           </div>
         </Reveal>
 
-        {/* MAIN SERVICES */}
         <Reveal>
-          <div className="mt-20 grid gap-8 lg:grid-cols-2">
-
-            {primaryServices.map((service, index) => (
+          <div className="mt-16 grid gap-6 lg:grid-cols-2">
+            {primaryServices.map((service) => (
               <div
                 key={service.title}
-                className={`relative overflow-hidden rounded-[36px] p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
-                  index === 0
-                    ? "bg-blue-600 text-white"
-                    : "border border-slate-200 bg-slate-50"
-                }`}
+                className="group relative overflow-hidden rounded-[36px] border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-900/10 lg:p-10"
               >
+                <div className="absolute inset-0 opacity-[0.04] [background-image:linear-gradient(135deg,#0f172a_1px,transparent_1px)] [background-size:18px_18px]" />
 
-                {/* BADGE */}
-                <div
-                  className={`inline-flex rounded-full px-4 py-2 text-sm font-medium ${
-                    index === 0
-                      ? "bg-white/10 text-blue-100"
-                      : "bg-white text-slate-600"
-                  }`}
-                >
-                  {service.badge}
+                <div className="relative flex items-center justify-between gap-4">
+                  <div className="inline-flex rounded-full bg-slate-100 px-4 py-2 text-sm font-bold text-slate-700">
+                    {service.badge}
+                  </div>
+
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br ${service.accent} text-white shadow-lg`}>
+                    <service.Icon className="h-6 w-6" />
+                  </div>
                 </div>
 
-                {/* TITLE */}
-                <h3
-                  className={`mt-8 text-4xl font-bold tracking-tight ${
-                    index === 0 ? "text-white" : "text-slate-900"
-                  }`}
-                >
+                <h3 className="relative mt-8 text-4xl font-black tracking-tight text-slate-950">
                   {service.title}
                 </h3>
 
-                {/* DESC */}
-                <p
-                  className={`mt-6 text-lg leading-8 ${
-                    index === 0 ? "text-blue-100" : "text-slate-600"
-                  }`}
-                >
+                <p className="relative mt-6 text-lg leading-8 text-slate-600">
                   {service.description}
                 </p>
 
-                {/* CTA */}
+                <div className="relative mt-8 rounded-lg bg-slate-950 px-5 py-4 text-white">
+                  <p className="text-sm font-semibold text-white">{service.metric}</p>
+                  <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
+                    <div className={`h-full w-4/5 origin-left rounded-full bg-gradient-to-r ${service.accent} pulse-line`} />
+                  </div>
+                </div>
+
                 <button
                   onClick={() => scrollTo(service.target)}
-                  className={`mt-10 font-semibold ${
-                    index === 0 ? "text-white" : "text-blue-600"
-                  }`}
+                  className="relative mt-8 inline-flex items-center gap-2 font-bold text-blue-600 transition group-hover:gap-3"
                 >
-                  Learn more →
+                  Learn more
+                  <ArrowUpRight className="h-4 w-4" />
                 </button>
-
-                {index === 0 && (
-                  <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-                )}
-
               </div>
             ))}
-
           </div>
         </Reveal>
 
-        {/* SUPPORTING SERVICES */}
         <Reveal>
-          <div className="mt-20 rounded-[36px] border border-slate-200 bg-slate-50 p-10">
-
+          <div className="mt-10 rounded-xl border border-slate-200 bg-slate-950 p-8 text-white shadow-2xl shadow-slate-900/10 lg:p-10">
             <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
-
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
                   Additional Services
                 </p>
 
-                <h3 className="mt-4 text-3xl font-bold tracking-tight text-slate-900">
+                <h3 className="mt-4 text-3xl font-black tracking-tight">
                   Supporting infrastructure & integration services
                 </h3>
               </div>
 
               <div className="flex flex-wrap gap-4">
-
-                {supportingServices.map((service) => (
+                {supportingServices.map(({ label, Icon }) => (
                   <div
-                    key={service}
-                    className="rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700 transition hover:-translate-y-1 hover:shadow-xl"
+                    key={label}
+                    className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/10 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:border-blue-300 hover:bg-blue-400/20"
                   >
-                    {service}
+                    <Icon className="h-4 w-4 text-blue-300" />
+                    {label}
                   </div>
                 ))}
-
               </div>
-
             </div>
-
           </div>
         </Reveal>
-
       </div>
     </section>
   )

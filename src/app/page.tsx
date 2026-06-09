@@ -14,9 +14,10 @@ import Process from "@/components/sections/home/Process"
 export default function Page() {
   return (
     <main>
-      <Ticker/>
+     {/* <Ticker/> */}
       <Hero />    
-      <CoreServices />      
+      <CoreServices />
+      <HowWeWorkCard />
       <Process/>     
       <PlatformPreview />
       <WhyLayer21 />

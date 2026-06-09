@@ -1,109 +1,98 @@
 import Reveal from "@/components/animations/Reveal"
+import { Headphones, Layers3, ShieldCheck, TimerReset } from "lucide-react"
 
 const features = [
   {
-    title: "Compliance Ready",
+    title: "Compliance ready",
     description:
       "Built to support secure and compliant e-invoicing operations for modern businesses.",
+    Icon: ShieldCheck,
+    color: "text-emerald-600",
   },
   {
-    title: "Scalable Infrastructure",
+    title: "Scalable infrastructure",
     description:
       "From startups to enterprise systems, Layer21 scales with your operational growth.",
+    Icon: Layers3,
+    color: "text-blue-600",
   },
   {
-    title: "Fast Integrations",
+    title: "Fast integrations",
     description:
-      "Connect ERPs, accounting systems and APIs without rebuilding your workflow.",
+      "Connect ERPs, accounting systems, and APIs without rebuilding your workflow.",
+    Icon: TimerReset,
+    color: "text-amber-500",
   },
   {
-    title: "Enterprise Support",
+    title: "Enterprise support",
     description:
-      "Dedicated technical support, onboarding assistance and long-term infrastructure guidance.",
+      "Dedicated technical support, onboarding assistance, and long-term infrastructure guidance.",
+    Icon: Headphones,
+    color: "text-rose-500",
   },
 ]
 
 export default function WhyLayer21() {
   return (
-    <section className="bg-white px-6 py-32">
+    <section className="relative overflow-hidden bg-white px-6 py-28">
+      <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-blue-50 to-transparent" />
 
-      <div className="mx-auto grid max-w-6xl gap-20 lg:grid-cols-2 lg:items-center">
+      <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <Reveal>
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+              Why Layer21
+            </p>
 
-        {/* LEFT */}
-        <div>
+            <h2 className="mt-6 text-4xl font-black leading-tight tracking-tight text-slate-950 lg:text-6xl">
+              Built for businesses that need reliable digital infrastructure
+            </h2>
 
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-            Why Layer21
-          </p>
+            <p className="mt-8 text-lg leading-8 text-slate-600">
+              We combine enterprise-grade software engineering with secure
+              e-invoicing infrastructure to help businesses operate more
+              efficiently and scale confidently.
+            </p>
 
-          <h2 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-slate-900 lg:text-5xl">
-            Built for businesses that need reliable digital infrastructure
-          </h2>
-
-          <p className="mt-8 text-lg leading-8 text-slate-600">
-            We combine enterprise-grade software engineering with secure
-            e-invoicing infrastructure to help businesses operate more
-            efficiently and scale confidently.
-          </p>
-
-          {/* STATS */}
-          <div className="mt-12 grid grid-cols-2 gap-8">
-
-            <div>
-              <h3 className="text-4xl font-bold text-slate-900">
-                99.9%
-              </h3>
-
-              <p className="mt-2 text-slate-500">
-                Infrastructure uptime
-              </p>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              {[
+                ["99.9%", "Infrastructure uptime"],
+                ["24/7", "Enterprise support"],
+                ["7 yrs", "Audit-ready archiving"],
+                ["6+", "ERP connector paths"],
+              ].map(([value, label]) => (
+                <div key={label} className="rounded-lg border border-slate-200 bg-slate-50 p-5">
+                  <h3 className="text-4xl font-black text-slate-950">{value}</h3>
+                  <p className="mt-2 text-sm font-semibold text-slate-500">{label}</p>
+                </div>
+              ))}
             </div>
-
-            <div>
-              <h3 className="text-4xl font-bold text-slate-900">
-                24/7
-              </h3>
-
-              <p className="mt-2 text-slate-500">
-                Enterprise support
-              </p>
-            </div>
-
           </div>
+        </Reveal>
 
-        </div>
+        <Reveal>
+          <div className="grid gap-5 sm:grid-cols-2">
+            {features.map((feature) => (
+              <div
+                key={feature.title}
+                className="group rounded-xl border border-slate-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-900/10"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-100">
+                  <feature.Icon className={`h-6 w-6 ${feature.color}`} />
+                </div>
 
-        {/* RIGHT */}
-       <Reveal>  <div className="grid gap-6 sm:grid-cols-2">
+                <h3 className="mt-7 text-2xl font-black text-slate-950">
+                  {feature.title}
+                </h3>
 
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="rounded-[28px] border border-slate-200 bg-slate-50 p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-2xl dark:hover:bg-slate-800"
-            >
-
-              {/* ICON */}
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-600 text-white">
-
-                <div className="h-3 w-3 rounded-full bg-white" />
-
+                <p className="mt-4 leading-7 text-slate-600">
+                  {feature.description}
+                </p>
               </div>
-
-              <h3 className="mt-8 text-2xl font-bold text-slate-900">
-                {feature.title}
-              </h3>
-
-              <p className="mt-4 leading-8 text-slate-600">
-                {feature.description}
-              </p>
-
-            </div> 
-          ))}
-
-        </div></Reveal>
-
+            ))}
+          </div>
+        </Reveal>
       </div>
-
     </section>
   )
 }

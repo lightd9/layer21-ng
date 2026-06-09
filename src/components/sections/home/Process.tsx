@@ -1,100 +1,96 @@
 import Reveal from "@/components/animations/Reveal"
+import { DraftingCompass, PlugZap, Radar, Rocket } from "lucide-react"
 
 const steps = [
   {
     number: "01",
-    title: "Discovery & Planning",
+    title: "Map the workflow",
     description:
-      "We analyze your business workflow, infrastructure requirements and operational goals.",
+      "We turn your business process, compliance needs, and integration stack into a practical build map.",
+    Icon: Radar,
+    color: "text-blue-600",
   },
   {
     number: "02",
-    title: "System Design",
+    title: "Design the architecture",
     description:
-      "Our team designs scalable software architecture tailored to your business.",
+      "Your platform, APIs, data models, and invoice flows are designed for reliability before code starts.",
+    Icon: DraftingCompass,
+    color: "text-amber-500",
   },
   {
     number: "03",
-    title: "Development & Integration",
+    title: "Build and connect",
     description:
-      "We build, integrate and deploy your software systems.",
+      "We ship product increments, connect ERP systems, and automate the validation paths that matter.",
+    Icon: PlugZap,
+    color: "text-emerald-600",
   },
   {
     number: "04",
-    title: "Support & Scaling",
+    title: "Launch and improve",
     description:
-      "Continuous monitoring, maintenance and support to ensure long-term operational stability.",
+      "Monitoring, support, and iteration keep the system healthy as transaction volume and teams grow.",
+    Icon: Rocket,
+    color: "text-rose-500",
   },
 ]
 
 export default function Process() {
   return (
-    <section id="process" className="bg-[#F8FAFC] px-6 py-32">
+    <section id="process" className="relative overflow-hidden bg-[#f8fafc] px-6 py-28">
+      <div className="absolute inset-0 opacity-[0.08] [background-image:radial-gradient(#0f172a_1px,transparent_1px)] [background-size:24px_24px]" />
 
-      <div className="mx-auto max-w-6xl">
+      <div className="relative mx-auto max-w-7xl">
+        <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+              Development Process
+            </p>
 
-        {/* TOP */}
-        <div className="text-center">
-
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-            Development Process
-          </p>
-
-          <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-slate-900 lg:text-5xl">
-            A streamlined approach to building modern business systems
-          </h2>
-
-        </div>
-
-        {/* STEPS */}
-       <Reveal> <div className="relative mt-24">
-
-          {/* LINE */}
-          <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-slate-200 lg:block" />
-
-          <div className="space-y-10">
-
-            {steps.map((step, index) => (
-              <div
-                key={step.number}
-                className={`grid items-center gap-10 lg:grid-cols-2 ${
-                  index % 2 !== 0 ? "lg:[&>*:first-child]:order-2" : ""
-                }`}
-              >
-
-                {/* CARD */}
-               <Reveal> <div className="rounded-[32px] border border-slate-200 bg-white p-10 shadow-sm">
-
-                  <div className="flex items-center gap-5">
-
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-600 text-lg font-bold text-white">
-                      {step.number}
-                    </div>
-
-                    <h3 className="text-2xl font-bold text-slate-900">
-                      {step.title}
-                    </h3>
-
-                  </div>
-
-                  <p className="mt-8 text-lg leading-8 text-slate-600">
-                    {step.description}
-                  </p>
-
-                </div></Reveal>
-
-                {/* EMPTY SIDE */}
-                <div className="hidden lg:block" />
-
-              </div>
-            ))}
-
+            <h2 className="mt-6 max-w-3xl text-4xl font-black leading-tight tracking-tight text-slate-950 lg:text-6xl">
+              From brief to live system, with a visible path.
+            </h2>
           </div>
 
-        </div></Reveal>
+          <p className="max-w-3xl text-lg leading-8 text-slate-600 lg:ml-auto">
+            The work is sequenced like an operations pipeline: discover the
+            risks, design the system, connect the moving parts, and keep tuning
+            after launch.
+          </p>
+        </div>
 
+        <Reveal>
+          <div className="relative mt-16 grid gap-5 lg:grid-cols-4">
+            <div className="absolute left-0 right-0 top-14 hidden h-1 origin-left rounded-full bg-gradient-to-r from-blue-400 via-amber-300 to-rose-400 pulse-line lg:block" />
+
+            {steps.map((step) => (
+              <div
+                key={step.number}
+                className="group relative rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-900/10"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-lg border border-slate-200 bg-slate-50">
+                    <step.Icon className={`h-7 w-7 ${step.color}`} />
+                  </div>
+
+                  <span className="font-mono text-sm font-black text-slate-300">
+                    {step.number}
+                  </span>
+                </div>
+
+                <h3 className="mt-8 text-2xl font-black text-slate-950">
+                  {step.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-slate-600">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
-
     </section>
   )
 }
