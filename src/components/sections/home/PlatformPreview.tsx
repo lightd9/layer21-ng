@@ -13,7 +13,7 @@ const activity = [
 ]
 
 const BASE_DATE = new Date("2026-06-06").getTime()
-const BASE_INVOICES = 2090
+const BASE_INVOICES = 2000
 const BASE_ERPS = 4
 
 export default function PlatformPreview() {

@@ -65,6 +65,7 @@ const CATEGORY_STYLES: Record<NewsArticle["category"], string> = {
   "NRS": "bg-blue-50 text-blue-800",
   "Industry": "bg-emerald-50 text-emerald-800",
   "Product": "bg-violet-50 text-violet-800",
+  "Regulation": "bg-rose-50 text-rose-800",
 }
 
 function formatDate(dateStr: string) {
