@@ -21,6 +21,7 @@ const contactItems = [
     value: "Lagos, Nigeria",
     Icon: MapPin,
   },
+  
 ]
 
 export default function Contact() {

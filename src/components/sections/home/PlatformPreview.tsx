@@ -1,12 +1,9 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import Reveal from "@/components/animations/Reveal"
 import { Activity, CheckCircle2, DatabaseZap, RefreshCcw } from "lucide-react"
 import Image from "next/image"
-
-const metrics = [
-  ["Invoices validated", "4,287", "text-blue-600"],
-  ["Success rate", "98.7%", "text-emerald-600"],
-  ["ERP connectors", "6+", "text-amber-500"],
-]
 
 const activity = [
   ["INV-8841", "Validated", "2 sec ago", "bg-emerald-100 text-emerald-700"],
@@ -15,7 +12,35 @@ const activity = [
   ["INV-8838", "Accepted", "20 sec ago", "bg-emerald-100 text-emerald-700"],
 ]
 
+const BASE_DATE = new Date("2026-06-06").getTime()
+const BASE_INVOICES = 2090
+const BASE_ERPS = 4
+
 export default function PlatformPreview() {
+  const [invoices, setInvoices] = useState(BASE_INVOICES)
+  const [erps, setErps] = useState(BASE_ERPS)
+
+  useEffect(() => {
+    const now = Date.now()
+
+    const weeksPassed = Math.floor((now - BASE_DATE) / (1000 * 60 * 60 * 24 * 7))
+    const monthsPassed = Math.floor((now - BASE_DATE) / (1000 * 60 * 60 * 24 * 30))
+
+    let total = BASE_INVOICES
+    for (let i = 0; i < weeksPassed; i++) {
+      total += 4 + (i % 4) // cycles through 4, 5, 6, 7
+    }
+
+    setInvoices(total)
+    setErps(BASE_ERPS + monthsPassed)
+  }, [])
+
+  const metrics = [
+    ["Invoices validated", invoices.toLocaleString(), "text-blue-600"],
+    ["Success rate", "98.7%", "text-emerald-600"],
+    ["ERP connectors", `${erps}+`, "text-amber-500"],
+  ]
+
   return (
     <section id="platform" className="relative overflow-hidden bg-slate-950 px-6 py-28 text-white">
       <div className="absolute inset-0 opacity-40">
@@ -37,7 +62,7 @@ export default function PlatformPreview() {
             <div>
               <div className="inline-flex items-center gap-2 rounded-lg border border-blue-300/30 bg-blue-300/10 px-4 py-2 text-sm font-bold text-blue-100">
                 <CheckCircle2 className="h-4 w-4 text-emerald-300" />
-                FIRS Accredited - NRS Certified
+                NRS Accredited
               </div>
 
               <h2 className="mt-6 max-w-4xl text-4xl font-black leading-tight tracking-tight lg:text-6xl">

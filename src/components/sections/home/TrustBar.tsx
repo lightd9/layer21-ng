@@ -1,5 +1,5 @@
 const items = [
-  "FIRS Accredited",
+  "NRS Accredited",
   "NRS Certified",
   "99.9% Uptime SLA",
   "Secure API Infrastructure",

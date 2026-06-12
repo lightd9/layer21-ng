@@ -42,7 +42,7 @@ export default function Hero() {
   }, [])
 
   const proofPoints = [
-    { label: "FIRS ready", Icon: ShieldCheck },
+    { label: "NRS Accredited", Icon: ShieldCheck },
     { label: "ERP friendly", Icon: Zap },
     { label: "SLA backed", Icon: CheckCircle2 },
   ]
@@ -70,7 +70,7 @@ export default function Hero() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-blue-400 bg-white/80 px-4 py-2 text-sm font-semibold text-blue-800 shadow-sm backdrop-blur">
               <Sparkles className="h-4 w-4 text-amber-500" />
-              Software team + certified e-invoicing infrastructure
+              Software team + Accredited e-invoicing infrastructure
             </div>
 
             <h1 className="mt-8 max-w-4xl text-5xl font-black leading-[0.98] text-slate-950 sm:text-6xl lg:text-7xl">
@@ -171,7 +171,7 @@ export default function Hero() {
 
             <div className="absolute right-8 top-20 z-40 rounded-lg border border-emerald-400 bg-white px-5 py-4 shadow-xl">
               <p className="text-xs font-bold uppercase text-emerald-600">NRS status</p>
-              <p className="mt-1 text-2xl font-black text-slate-950">Accepted</p>
+              <p className="mt-1 text-2xl font-black text-slate-950">Accredited</p>
             </div>
           </div>
         </Reveal>

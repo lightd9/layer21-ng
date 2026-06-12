@@ -9,6 +9,7 @@ import CTA from "@/components/sections/home/CTA"
 import Contact from "@/components/sections/home/Contact"
 import Pricing from "@/components/sections/home/Pricing"
 import Process from "@/components/sections/home/Process"
+import News from "@/components/sections/home/News"
 
 
 export default function Page() {
@@ -21,6 +22,7 @@ export default function Page() {
       <Process/>     
       <PlatformPreview />
       <WhyLayer21 />
+      <News/>
       <Pricing />
       <CTA />
       <Contact />

@@ -1,5 +1,5 @@
 const tickerItems = [
-  "FIRS-Certified E-Invoicing Access Point",
+  "NRS-Accredited E-Invoicing Access Point",
   "Real-time invoice validation to NRS",
   "Seamless ERP integration (Odoo, SAP, Oracle, QuickBooks)",
   "SDaaS: Dedicated software engineering teams on demand",

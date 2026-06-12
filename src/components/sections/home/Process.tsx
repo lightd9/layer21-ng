@@ -45,7 +45,7 @@ export default function Process() {
         <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
-              Development Process
+              Application Development Process
             </p>
 
             <h2 className="mt-6 max-w-3xl text-4xl font-black leading-tight tracking-tight text-slate-950 lg:text-6xl">

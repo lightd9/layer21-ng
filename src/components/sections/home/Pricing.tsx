@@ -8,13 +8,13 @@ import { useState } from "react"
 const plans = [
   {
     title: "E-Invoicing Access Point",
-    subtitle: "FIRS-Certified Access Point for NRS Submission",
+    subtitle: "Secure Accredited Access Point for NRS Submission",
     description:
       "A tailored infrastructure quote based on invoice volume, ERP stack, compliance requirements, and SLA needs.",
     cta: "Request quote",
     accent: "from-blue-500 to-blue-600",
     features: [
-      "FIRS-accredited real-time invoice validation",
+      "NRS-accredited real-time invoice validation",
       "ERP connectors for Odoo, SAP, Oracle, QuickBooks, and Sage",
       "Encrypted invoice submission and auto-retry queue",
       "End-to-end audit trail and 7-year archive",

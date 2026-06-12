@@ -14,8 +14,8 @@ const primaryServices = [
   {
     title: "E-Invoicing Infrastructure",
     description:
-      "FIRS/NRS-compliant invoice submission infrastructure that connects businesses and ERP systems directly to the Nigeria Revenue Service through secure APIs.",
-    badge: "Compliance Infrastructure",
+      "We are a trused and accredited Access Point Provider(APP) that facilitate the  exchange of Electronic Invoicing between your trading systems through secure APIs, while ensuring these invoices meet the required legal andd technical standard.",
+    badge: "Compliance Access Point Provider Infrastructure",
     target: "pricing",
     Icon: FileCheck2,
     accent: "from-cyan-500 to-blue-600",
@@ -34,7 +34,7 @@ const primaryServices = [
 ]
 
 const supportingServices = [
-  { label: "ERP Integrations", Icon: Network },
+  { label: "ERP/CRM Integrations", Icon: Network },
   { label: "System Architecture", Icon: Workflow },
   { label: "API Development", Icon: Braces },
   { label: "Workflow Automation", Icon: Zap },
