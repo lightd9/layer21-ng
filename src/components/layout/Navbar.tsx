@@ -5,7 +5,6 @@ const links = [
   { label: "Process", href: "#process" },
   { label: "E-invoicing", href: "#platform" },
   { label: "Pricing", href: "#pricing" },
-
 ]
 
 export default function Navbar() {
@@ -14,8 +13,13 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5">
 
         {/* LOGO */}
-        <a href="#hero" className="text-2xl font-bold">
-          Layer<span className="text-blue-600">21</span>
+{/* LOGO */}
+        <a href="#hero" className="flex items-center">
+          <img 
+            src="/layer21logo.png" 
+            alt="Layer21" 
+            className="h-10 w-auto sm:h-12" 
+          />
         </a>
 
         {/* RIGHT SIDE */}
@@ -23,7 +27,6 @@ export default function Navbar() {
 
           {/* NAV (RIGHT ALIGNED) */}
           <nav className="hidden items-center gap-7 text-sm font-semibold text-slate-600 md:flex">
-
             {links.map((link) => (
               <a
                 key={link.href}
@@ -33,7 +36,6 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-
           </nav>
 
           {/* CONTACT BUTTON (ALWAYS VISIBLE) */}
@@ -45,7 +47,6 @@ export default function Navbar() {
           </a>
 
         </div>
-
       </div>
     </header>
   )

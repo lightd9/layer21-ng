@@ -1,12 +1,45 @@
-"use client"
+"use client" 
 import TickerTrustLabel from "@/components/sections/home/Trust"
 import Reveal from "@/components/animations/Reveal"
 import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles, Zap } from "lucide-react"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function Hero() {
   const [activeImage, setActiveImage] = useState<"team" | "infrastructure">("infrastructure")
+  
+  const [stats, setStats] = useState({ validations: 2000, erps: 4 })
+
+  useEffect(() => {
+    const baseDate = new Date("2026-06-06").getTime()
+    const now = Date.now()
+    const daysPassed = Math.floor((now - baseDate) / (1000 * 60 * 60 * 24))
+    const weeksPassed = Math.floor(daysPassed / 7)
+
+    const targetValidations = 2000 + (daysPassed * 15) 
+    const targetErps = 4 + (weeksPassed * 1)
+
+    const duration = 2500
+    let startTime: number | null = null
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime
+      const progress = Math.min((currentTime - startTime) / duration, 1)
+      
+      const easeOut = progress * (2 - progress)
+
+      setStats({
+        validations: Math.floor(easeOut * (targetValidations - 2000) + 2000),
+        erps: Math.floor(easeOut * (targetErps - 4) + 4)
+      })
+
+      if (progress < 1) {
+        requestAnimationFrame(animate)
+      }
+    }
+
+    requestAnimationFrame(animate)
+  }, [])
 
   const proofPoints = [
     { label: "FIRS ready", Icon: ShieldCheck },
@@ -20,6 +53,12 @@ export default function Hero() {
       block: "start",
     })
   }
+
+  const displayStats = [
+    stats.validations.toLocaleString(), 
+    "98.7%", 
+    `${stats.erps} ERP`
+  ]
 
   return (
     <section id="hero" className="relative overflow-hidden bg-[#f7fbff] px-6 pb-24 pt-20 sm:pt-24">
@@ -61,14 +100,6 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
-              {proofPoints.map(({ label, Icon }) => (
-                <div key={label} className="flex items-center gap-2 rounded-lg bg-white/70 px-4 py-3 text-sm font-semibold text-slate-700 shadow-md ring-2 ring-slate-100/70 backdrop-blur">
-                  <Icon className="h-4 w-4 text-emerald-500" />
-                  {label}
-                </div>
-              ))}
-            </div>
 
             <TickerTrustLabel />
           </div>
@@ -129,7 +160,7 @@ export default function Hero() {
               <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
                 <p className="text-sm font-semibold text-blue-200">Live validation lane</p>
                 <div className="mt-4 grid grid-cols-3 gap-3">
-                  {["4,287", "98.7%", "6 ERP"].map((value) => (
+                  {displayStats.map((value) => (
                     <div key={value} className="rounded-lg bg-white/10 p-3 backdrop-blur">
                       <p className="text-xl font-black">{value}</p>
                     </div>
