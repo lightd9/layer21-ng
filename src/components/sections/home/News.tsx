@@ -10,7 +10,7 @@ export interface NewsArticle {
   url: string
   title: string
   excerpt: string
-  category: "Regulation" | "FIRS" | "Industry" | "Product"
+  category: "Regulation" | "NRS" | "E-invoicing" | "Industry" | "Product"
   date: string
   image: string
   featured?: boolean
